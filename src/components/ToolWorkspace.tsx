@@ -5,11 +5,13 @@ export function OutputPanel({
   loading,
   error,
   placeholder,
+  onClear,
 }: {
   output: string | null;
   loading: boolean;
   error: string | null;
   placeholder: string;
+  onClear?: () => void;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -51,12 +53,28 @@ export function OutputPanel({
             >
               {copied ? "Copied" : "Copy"}
             </button>
+            {onClear ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setCopied(false);
+                  onClear();
+                }}
+                className="rounded-md border border-primary-foreground/30 px-4 py-2 text-xs font-bold text-primary-foreground"
+              >
+                Clear
+              </button>
+            ) : null}
           </div>
         ) : null}
 
-        <p className="mt-auto pt-6 text-[11px] leading-relaxed opacity-60">
-          Read this draft in full and edit anything that is inaccurate before you use it.
-        </p>
+        <div className="mt-auto pt-6">
+          <p className="eyebrow text-accent">Human oversight required</p>
+          <p className="mt-1 text-[11px] leading-relaxed opacity-60">
+            This is an AI draft written only from what you typed. Read it in full, replace any
+            placeholder in brackets, and correct anything inaccurate before you use or send it.
+          </p>
+        </div>
       </div>
     </div>
   );

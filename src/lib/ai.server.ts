@@ -47,4 +47,4 @@ export async function callAI(system: string, user: string): Promise<string> {
 }
 
 export const NO_INVENTION_RULE =
-  "Use ONLY the information the user provided. Never invent names, dates, numbers, facts, deadlines, or commitments that are not in the input. If something essential is missing, leave a clearly marked placeholder in square brackets such as [name] or [date] instead of guessing. Return plain text only, no markdown code fences.";
+  "Use ONLY the information the user provided. Preserve the user's meaning exactly: do not add new facts, promises, apologies, reasons, names, dates, numbers, deadlines or commitments that are not in the input, and do not remove any point the user made. When a detail is missing, write a clearly marked placeholder in round brackets instead of guessing, using exactly these where they apply: (Manager's name), (Your name), (Date), (Time), (Team name), (Project name). Never fabricate a signature, job title or company. Return plain text only, no markdown code fences.";

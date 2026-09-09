@@ -80,6 +80,11 @@ function NotesPage() {
           output={output}
           loading={loading}
           error={error}
+          onClear={() => {
+            setOutput(null);
+            setError(null);
+            setNotes("");
+          }}
           placeholder="Your summary, decisions and action items will appear here."
         />
       </div>

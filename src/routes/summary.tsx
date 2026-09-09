@@ -90,6 +90,11 @@ function SummaryPage() {
           output={output}
           loading={loading}
           error={error}
+          onClear={() => {
+            setOutput(null);
+            setError(null);
+            setWork("");
+          }}
           placeholder="Your end-of-day summary will appear here."
         />
       </div>

@@ -97,6 +97,11 @@ function EmailPage() {
           output={output}
           loading={loading}
           error={error}
+          onClear={() => {
+            setOutput(null);
+            setError(null);
+            setText("");
+          }}
           placeholder="Your rewritten message will appear here once you generate it."
         />
       </div>

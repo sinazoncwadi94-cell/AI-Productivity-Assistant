@@ -91,6 +91,12 @@ function PlannerPage() {
           output={output}
           loading={loading}
           error={error}
+          onClear={() => {
+            setOutput(null);
+            setError(null);
+            setTasks("");
+            setHours("");
+          }}
           placeholder="Your prioritised plan will appear here once you generate it."
         />
       </div>
